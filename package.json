@@ -4,6 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "mkdir -p dist && cp -r index.html style.css script.js pages assets dist/"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo \"No build step required\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
