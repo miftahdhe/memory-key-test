@@ -1,0 +1,6 @@
+{
+  "name": "Memory Key",
+  "description": "Sebuah aplikasi web kecil yang berjalan sebagai halaman khusus (diakses melalui NFC), menampilkan kunci password elegan dan misterius yang membuka dashboard puisi, foto, dan catatan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

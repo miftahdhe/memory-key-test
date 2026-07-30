@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Memory Key</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lock-screen" class="screen active">
+        <div class="lock-container">
+            <h1 class="title">Memory Key</h1>
+            <p class="subtitle">Silakan masukkan akses</p>
+            
+            <div class="pin-display">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            
+            <div class="message" id="error-message">Kode salah</div>
+            
+            <div class="keypad">
+                <button class="key" onclick="pressKey('1')">1</button>
+                <button class="key" onclick="pressKey('2')">2</button>
+                <button class="key" onclick="pressKey('3')">3</button>
+                <button class="key" onclick="pressKey('4')">4</button>
+                <button class="key" onclick="pressKey('5')">5</button>
+                <button class="key" onclick="pressKey('6')">6</button>
+                <button class="key" onclick="pressKey('7')">7</button>
+                <button class="key" onclick="pressKey('8')">8</button>
+                <button class="key" onclick="pressKey('9')">9</button>
+                <button class="key action" onclick="clearPin()">Del</button>
+                <button class="key" onclick="pressKey('0')">0</button>
+                <button class="key action confirm" onclick="submitPin()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="welcome-screen" class="screen">
+        <h2 class="welcome-text">Selamat datang...</h2>
+    </div>
+
+    <div id="main-screen" class="screen">
+        <div class="dashboard">
+            <h2 class="dashboard-title">Memory Key</h2>
+            <p class="dashboard-greeting">Sebuah ruang kecil yang aku buat</p>
+            <div class="dashboard-divider"></div>
+            <div class="menu-container">
+                <button class="menu-btn" onclick="openMenu('puisi')">
+                    <div class="menu-btn-content">
+                        <span class="menu-btn-title"><span class="icon" style="margin-right: 12px;">✒️</span>Puisi</span>
+                    </div>
+                    <span class="menu-btn-arrow">→</span>
+                </button>
+                <button class="menu-btn" onclick="openMenu('galeri')">
+                    <div class="menu-btn-content">
+                        <span class="menu-btn-title"><span class="icon" style="margin-right: 12px;">📸</span>Galeri</span>
+                    </div>
+                    <span class="menu-btn-arrow">→</span>
+                </button>
+                <button class="menu-btn" onclick="openMenu('catatan')">
+                    <div class="menu-btn-content">
+                        <span class="menu-btn-title"><span class="icon" style="margin-right: 12px;">📓</span>Catatan</span>
+                    </div>
+                    <span class="menu-btn-arrow">→</span>
+                </button>
+            </div>
+            <div class="footer">
+                <span>Memory Key &copy; 2024</span>
+                <span>v1.0.0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

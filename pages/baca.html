@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Memory Key - Baca</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="baca.css">
+</head>
+<body>
+    <div id="loading-screen" class="screen active">
+        <div class="loader"></div>
+        <p>Menyiapkan ruang...</p>
+    </div>
+
+    <div id="book-screen" class="screen">
+        <button class="back-btn absolute-back" onclick="window.history.back()">← Kembali</button>
+        
+        <div class="scene-3d">
+            <div class="table-surface">
+                <div class="table-edge"></div>
+            </div>
+            
+            <div class="book-container">
+                <div class="book closed" id="the-book">
+                    
+                    <div class="page right-side">
+                    <div class="page-face front right-page-bg">
+                        <div class="page-content" id="right-text-container"></div>
+                    </div>
+                    <div class="page-face back cover-front">
+                        <!-- Back cover of the book -->
+                    </div>
+                </div>
+
+                <div class="page cover" id="cover-page">
+                    <div class="page-face front cover-front">
+                        <div class="cover-ornament">
+                            <h2 class="book-title">Dalam Lima Waktuku</h2>
+                        </div>
+                    </div>
+                    <div class="page-face back left-page-bg">
+                        <div class="page-content" id="left-text-container"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        <div class="pen" id="pen-cursor">✏️</div>
+        <div class="hint-text" id="hint-text">Ketuk buku untuk membuka</div>
+    </div>
+
+    <!-- Audio element for background music -->
+    <audio id="bg-music" loop>
+        <source src="../assets/puisi/audio1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="baca.js"></script>
+</body>
+</html>

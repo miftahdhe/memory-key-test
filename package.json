@@ -1,0 +1,9 @@
+{
+  "name": "memory-key",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r index.html style.css script.js pages assets dist/"
+  }
+}

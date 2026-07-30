@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+.screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s;
+    background: #0a0604;
+    perspective: 1200px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scene-3d {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) translateY(-2%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-surface {
+    position: absolute;
+    width: 250vw;
+    height: 250vh;
+    background-color: #3e2723;
+    background-image: 
+        radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.85) 60%),
+        url('https://images.unsplash.com/photo-1601662528567-526cd06f6582?q=80&w=1470&auto=format&fit=crop');
+    background-size: cover, 500px;
+    transform: translateZ(-30px);
+    box-shadow: inset 0 0 150px 100px rgba(0,0,0,1);
+}
+
+.absolute-back {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    color: #2c1a0f;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+    font-weight: 500;
+}
+
+#book-screen {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.book-container {
+    width: 44vw; 
+    height: 68vw; 
+    max-width: 350px;
+    max-height: 540px;
+    position: relative;
+    transform-style: preserve-3d;
+    filter: drop-shadow(10px 20px 20px rgba(0,0,0,0.8));
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    left: 0; top: 0;
+}
+
+.book.open {
+    transform: translateX(50%);
+}
+
+.page {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+}
+
+.right-side { z-index: 1; }
+.cover { 
+    z-index: 2; 
+    transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.book.open .cover { transform: rotateY(-180deg); }
+
+.flip-page {
+    z-index: 3;
+    transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.flip-page.flipping {
+    transform: rotateY(-180deg);
+}
+
+.page-face {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    background-color: #e3dccb;
+    border-radius: 3px 12px 12px 3px;
+    overflow: hidden;
+}
+
+.page-face.back {
+    transform: rotateY(180deg);
+    border-radius: 12px 3px 3px 12px;
+}
+
+.cover-front {
+    background: linear-gradient(135deg, #311c11, #1f1008);
+    border: 2px solid #5c3a21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 5px 5px 20px rgba(0,0,0,0.6);
+}
+
+.cover-ornament {
+    border: 1px solid #7a5030;
+    padding: 20px;
+    border-radius: 4px;
+    width: 80%;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+}
+
+.book-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #d4a373;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+@media (min-width: 600px) { .book-title { font-size: 1.5rem; } }
+
+.right-page-bg {
+    background: linear-gradient(to left, #d4cdbb, #e3dccb);
+    box-shadow: inset 15px 0 20px -5px rgba(0,0,0,0.15);
+}
+
+.left-page-bg {
+    background: linear-gradient(to right, #d4cdbb, #e3dccb);
+    box-shadow: inset -15px 0 20px -5px rgba(0,0,0,0.15);
+}
+
+.page-content {
+    padding: 10% 8%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #4a4a4a;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+@media (min-width: 400px) { .page-content { font-size: 18px; } }
+@media (min-width: 600px) { .page-content { font-size: 20px; } }
+@media (min-width: 800px) { .page-content { font-size: 22px; } }
+
+.section-title {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+    margin: 5px 0 0px 0;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 1px solid rgba(74, 74, 74, 0.2);
+    padding-bottom: 2px;
+}
+
+.hint-text {
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(44, 26, 15, 0.8);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+.hint-text.visible { opacity: 1; }
+
+@keyframes pulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+.pen {
+    position: absolute;
+    font-size: 1.5rem;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 50;
+    transform-origin: bottom left;
+    transform: translate(-4px, -100%);
+    transition: top 0.08s linear, left 0.08s linear, opacity 0.3s;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+}
+
+.pen.writing {
+    opacity: 1;
+    animation: writeWobble 0.15s infinite;
+}
+
+@keyframes writeWobble {
+    0% { transform: translate(-4px, -100%) rotate(0deg); }
+    25% { transform: translate(-4px, -100%) rotate(-5deg); }
+    50% { transform: translate(-4px, -100%) rotate(0deg); }
+    75% { transform: translate(-4px, -100%) rotate(5deg); }
+    100% { transform: translate(-4px, -100%) rotate(0deg); }
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 50%;
+    border-top-color: var(--text-primary);
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#loading-screen p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+}
+
+.screen.active, #book-screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
